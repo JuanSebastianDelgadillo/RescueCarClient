@@ -62,7 +62,8 @@
         <activity
             android:name=".detalleServ"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".detalleInfo"></activity>
+        <activity android:name=".detalleInfo"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
     </application>
 
 </manifest>

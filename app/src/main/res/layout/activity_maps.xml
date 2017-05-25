@@ -70,7 +70,7 @@
                     map:srcCompat="@drawable/int_no" />
 
                 <ImageView
-                    android:id="@+id/setting"
+                    android:id="@+id/imSet"
                     android:layout_width="30dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center|end"

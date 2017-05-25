@@ -65,7 +65,7 @@ public class MapsActivity extends ConexionMysqlHelper implements OnMapReadyCallb
     String ciudad, direc, id_mob,json_string;
     JSONObject jsonObject;
     JSONArray jsonArray;
-    ImageView gps, internet;
+    ImageView gps, internet, setting;
     Button btAlerta, btCancelar;
     EditText Direccion;
     int prop=0,servicioGPS=0, servicioInt=0;
@@ -89,6 +89,7 @@ public class MapsActivity extends ConexionMysqlHelper implements OnMapReadyCallb
         //Creacion de boton y estado
         gps = (ImageView) findViewById(R.id.imGps);
         internet= (ImageView) findViewById(R.id.imInt);
+        setting= (ImageView) findViewById(R.id.imSet);
         Direccion = (EditText) findViewById(R.id.etDireccion);
         btAlerta = (Button) findViewById(R.id.btAlerta);
         btCancelar = (Button) findViewById(R.id.btCancelar);
@@ -105,13 +106,10 @@ public class MapsActivity extends ConexionMysqlHelper implements OnMapReadyCallb
         recuperarDatos();
         //fin recupera datos
 
-        btAlerta.setOnClickListener(new View.OnClickListener() {
+        setting.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                if(Direccion.getText()!=null && Direccion.getText().toString() != ""){
-
-                /****** Ingreso segunda pagina ******/
-                Intent s = new Intent(getApplicationContext(), SelEmergencia.class);
+                Toast.makeText(varglob, "prueba setting", Toast.LENGTH_SHORT).show();
+                Intent s = new Intent(getApplicationContext(), detalleInfo.class);
                 s.putExtra("rut", rut);
                 s.putExtra("div", div);
                 s.putExtra("nom", nom);
@@ -121,6 +119,18 @@ public class MapsActivity extends ConexionMysqlHelper implements OnMapReadyCallb
                 s.putExtra("lng", lng);
                 s.putExtra("id_mob", id_mob);
                 startActivity(s);
+            }
+        });
+
+
+        btAlerta.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                if(Direccion.getText()!=null && Direccion.getText().toString() != ""){
+
+                /****** Ingreso segunda pagina ******/
+                Intent a = new Intent(getApplicationContext(), detalleInfo.class);
+                startActivity(a);
             }else{
                     Toast.makeText(getApplicationContext(),"Debe especificar una dirección",Toast.LENGTH_SHORT).show();
 
