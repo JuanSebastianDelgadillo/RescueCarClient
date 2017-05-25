@@ -59,8 +59,10 @@
         <activity
             android:name=".ConfirmaAlerta"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".detalleServ"
+        <activity
+            android:name=".detalleServ"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".detalleInfo"></activity>
     </application>
 
 </manifest>
