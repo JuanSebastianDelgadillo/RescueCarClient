@@ -16,8 +16,19 @@
         <LinearLayout
             android:layout_width="300dp"
             android:layout_height="match_parent"
-            android:elevation="8dp"
+            android:layout_weight="1"
+            android:elevation="0dp"
             android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imLeftArrow"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="0"
+                app:srcCompat="@drawable/arrow_back_white" />
 
             <ImageView
                 android:id="@+id/imageView14"
@@ -38,9 +49,8 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="52dp"
             android:layout_height="match_parent"
-            android:layout_weight="4"
             android:elevation="21dp"
             android:orientation="horizontal">
 
@@ -49,6 +59,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
+                android:layout_marginRight="0dp"
                 app:srcCompat="@drawable/int_no" />
         </LinearLayout>
 
@@ -79,7 +90,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="150dp"
                     android:layout_gravity="top"
-                    android:layout_marginTop="0dp"
+                    android:layout_marginTop="10dp"
                     android:padding="5dp"
                     app:srcCompat="@drawable/profile" />
 
@@ -232,7 +243,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Vehiculo - patente"
+                android:text="Vehículo no registrado"
                 android:textColor="@color/blanco"
                 android:textSize="18sp" />
 
@@ -249,15 +260,33 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="7dp"
+            android:background="@color/azul"
             android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                app:srcCompat="@mipmap/perfil" />
 
             <TextView
                 android:id="@+id/textView40"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
+                android:paddingTop="10dp"
                 android:text="Información personal" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                app:srcCompat="@mipmap/abajosi" />
         </LinearLayout>
 
         <LinearLayout
@@ -267,16 +296,33 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_marginTop="5dp"
+            android:background="@color/azul"
             android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                app:srcCompat="@mipmap/misvehiculos" />
 
             <TextView
                 android:id="@+id/textView41"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
+                android:paddingTop="10dp"
                 android:text="Mis vehículos" />
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                app:srcCompat="@mipmap/abajosi" />
         </LinearLayout>
 
         <LinearLayout
@@ -286,16 +332,33 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_marginTop="5dp"
+            android:background="@color/azul"
             android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                app:srcCompat="@mipmap/stareva" />
 
             <TextView
                 android:id="@+id/textView42"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
+                android:paddingTop="10dp"
                 android:text="Mis evaluaciones" />
+
+            <ImageView
+                android:id="@+id/imageView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                app:srcCompat="@mipmap/abajosi" />
         </LinearLayout>
 
         <LinearLayout
@@ -305,17 +368,33 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="40dp"
             android:layout_marginTop="5dp"
-            android:background="@color/blanco"
+            android:background="@color/azul"
             android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                app:srcCompat="@mipmap/history" />
 
             <TextView
                 android:id="@+id/textView43"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:layout_weight="1"
+                android:paddingTop="10dp"
                 android:text="Mi historial" />
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                app:srcCompat="@mipmap/abajosi" />
         </LinearLayout>
 
         <LinearLayout

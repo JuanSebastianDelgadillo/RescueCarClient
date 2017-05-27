@@ -51,7 +51,7 @@ public class ConfirmaAlerta extends ConexionMysqlHelper{
     String timegm, timega, timegc, timego, timepo, timeam, timebo, timeme, timene, timetr, timeco;
     String distgm, distga, distgc, distgo, distpo, distam, distbo, distme, distne, disttr, distco;
     String tips;
-    String grut, gdiv, gnombre, gapellido, gtelefono;
+    String grut, gdiv, gnombre, gapellido, gtelefono, gemail;
     int contando=0, contador=0;
 
 
@@ -262,7 +262,7 @@ public class ConfirmaAlerta extends ConexionMysqlHelper{
          gnombre = varglob.getNombre();
          gapellido = varglob.getApellido();
          gtelefono = varglob.getTelefono();
-         tipo = varglob.getServicios();
+         gemail = varglob.getEmail();
     }
 
     private void llenarListView(){
@@ -473,7 +473,7 @@ private void buscarChofer(){
 
                     }
 
-                    if (contador<10){
+                    if (contador<30){
                         if (tipos.size()!=0) {
 
                             new Handler().postDelayed(new Runnable() {
@@ -491,6 +491,12 @@ private void buscarChofer(){
 
                             Log.i("Cantidad en ArrayList:",String.valueOf(tipos.size()));
                         }
+                    }else{
+
+
+                        Toast.makeText(this, "Eltiempo de busqueda, ha superado el tiempo maximo, porfavor vuelva a intentarlo !!", Toast.LENGTH_SHORT).show();
+                        
+                        
                     }
 
                 } catch (JSONException e) {

@@ -148,7 +148,7 @@ public class RevisaRegistro extends ConexionMysqlHelper {
                             try {
                                 jsonObject = new JSONObject(json_string);
                                 jsonArray = jsonObject.getJSONArray("server_response");
-                                String rut, div, nom, ape, tel;
+                                String rut, div, nom, ape, tel, ema;
                                 int count = 0;
 
                                 JSONObject JO = jsonArray.getJSONObject(count);
@@ -157,6 +157,7 @@ public class RevisaRegistro extends ConexionMysqlHelper {
                                 nom = JO.getString("nom_user");
                                 ape = JO.getString("ape_user");
                                 tel = JO.getString("tel_user");
+                                ema = JO.getString("ema_user");
 
                                 if (rut.equals("no")) {
                                     Toast.makeText(getApplicationContext(), "No se encuentra registrado!!", Toast.LENGTH_SHORT).show();
@@ -172,6 +173,7 @@ public class RevisaRegistro extends ConexionMysqlHelper {
                                     varglob.setNombre(nom);
                                     varglob.setApellido(ape);
                                     varglob.setTelefono(tel);
+                                    varglob.setEmail(ema);
 
                                     Intent m = new Intent(getApplicationContext(), MapsActivity.class);
                                     startActivity(m);

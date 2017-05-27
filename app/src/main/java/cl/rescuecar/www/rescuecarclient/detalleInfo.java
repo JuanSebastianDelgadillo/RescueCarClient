@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -29,7 +30,7 @@ public class detalleInfo extends ConexionMysqlHelper{
     ImageView perfil;
     ImageView internet;
     int servicioInt, cantidadServ;
-    String grut, gdiv, gnombre, gapellido, gtelefono, gtipo;
+    String grut, gdiv, gnombre, gapellido, gtelefono, gemail;
     String rut, time, dist, tip;
     EditText nombre, solicitud, tipo;
     JSONObject jsonObject;
@@ -38,7 +39,7 @@ public class detalleInfo extends ConexionMysqlHelper{
     String[] services;
     EditText nombre_serv, telefono_serv;
     TextView serv1,serv2, serv3, serv4, serv5,serv6, serv7, serv8, serv9, serv10, tiempo_serv, distancia_serv;
-    ImageView star1, star2, star3, star4, star5;
+    ImageView star1, star2, star3, star4, star5, leftArrow;
     String calif, vehiculo;
 
     @Override
@@ -55,6 +56,7 @@ public class detalleInfo extends ConexionMysqlHelper{
 
         perfil = (ImageView) findViewById(R.id.improfile);
         internet = (ImageView) findViewById(R.id.imInt);
+        leftArrow = (ImageView) findViewById(R.id.imLeftArrow);
         star1 = (ImageView) findViewById(R.id.imStar1);
         star2 = (ImageView) findViewById(R.id.imStar2);
         star3 = (ImageView) findViewById(R.id.imStar3);
@@ -63,6 +65,15 @@ public class detalleInfo extends ConexionMysqlHelper{
 
         escuchaServicios();
         obtenerDatos();
+
+                leftArrow.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent s = new Intent(getApplicationContext(), MapsActivity.class);
+                s.putExtra("rut",rut);
+                startActivity(s);
+            }
+        });
+
     }
 
     public void escuchaServicios() {
@@ -97,8 +108,6 @@ public class detalleInfo extends ConexionMysqlHelper{
         Bundle b = iin.getExtras();
         if (b != null) {
             rut = (String) b.get("rut");
-            time = (String) b.get("time");
-            dist = (String) b.get("dist");
         }
 
         varGlob varglob = (varGlob) getApplicationContext();
@@ -108,8 +117,12 @@ public class detalleInfo extends ConexionMysqlHelper{
         rut_user.setText(grut+"-"+gdiv) ;
         gnombre = varglob.getNombre();
         gapellido = varglob.getApellido();
+        nom_user.setText(gnombre+" "+gapellido);
         gtelefono = varglob.getTelefono();
-        gtipo = varglob.getServicios();
+        tel_user.setText("+569"+gtelefono);
+        gemail = varglob.getEmail();
+        ema_user.setText(gemail);
+
         BuscarAlerta();
     }
 

@@ -51,6 +51,7 @@ public class FormRegister extends ConexionMysqlHelper{
                 varglob.setNombre(gnombre);
                 varglob.setApellido(gapellido);
                 varglob.setTelefono(gtelefono);
+                varglob.setEmail(gemail);
 
 
                 /****** Agrego en base de datos en otro hilo******/

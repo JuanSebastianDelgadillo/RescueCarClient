@@ -29,7 +29,7 @@ import java.net.URL;
 public class detalleServ extends ConexionMysqlHelper {
     ImageView internet;
     int servicioInt, cantidadServ;
-    String grut, gdiv, gnombre, gapellido, gtelefono, gtipo;
+    String grut, gdiv, gnombre, gapellido, gtelefono, gemail;
     String rut, time, dist, tip;
     EditText nombre, solicitud, tipo;
     JSONObject jsonObject;
@@ -119,7 +119,7 @@ public class detalleServ extends ConexionMysqlHelper {
         gnombre = varglob.getNombre();
         gapellido = varglob.getApellido();
         gtelefono = varglob.getTelefono();
-        gtipo = varglob.getServicios();
+        gemail= varglob.getEmail();
         BuscarAlerta();
     }
 

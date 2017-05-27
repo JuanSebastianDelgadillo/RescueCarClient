@@ -110,7 +110,6 @@ public class MapsActivity extends ConexionMysqlHelper implements OnMapReadyCallb
             public void onClick(View v) {
                 Intent s = new Intent(getApplicationContext(), detalleInfo.class);
                 s.putExtra("rut",rut);
-                s.putExtra("dir",dir);
                 startActivity(s);
             }
         });

@@ -12,7 +12,7 @@ public class varGlob extends Application {
     private String nombre;
     private String apellido;
     private String telefono;
-    private String servicios;
+    private String email;
     private String direccion;
 
 
@@ -48,12 +48,12 @@ public class varGlob extends Application {
         this.telefono = telefono;
     }
 
-    public String getServicios() {
-        return servicios;
+    public String getEmail() {
+        return email;
     }
 
-    public void setServicios(String servicios) {
-        this.servicios = servicios;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getDiv() {
