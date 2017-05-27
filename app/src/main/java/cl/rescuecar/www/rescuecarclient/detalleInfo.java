@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,9 +39,10 @@ public class detalleInfo extends ConexionMysqlHelper{
     TextView rut_user, dig_user, nom_user, ape_user, ema_user, tel_user, patente_serv;
     String[] services;
     EditText nombre_serv, telefono_serv;
-    TextView serv1,serv2, serv3, serv4, serv5,serv6, serv7, serv8, serv9, serv10, tiempo_serv, distancia_serv;
+    int servp=0,servv=0, serve=0, servh=0;
     ImageView star1, star2, star3, star4, star5, leftArrow;
     String calif, vehiculo;
+    LinearLayout llinfop, llinfov, llinfoh, llinfoe, lltp, lltv, llte, llth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,17 @@ public class detalleInfo extends ConexionMysqlHelper{
         star3 = (ImageView) findViewById(R.id.imStar3);
         star4 = (ImageView) findViewById(R.id.imStar4);
         star5 = (ImageView) findViewById(R.id.imStar5);
+        lltp = (LinearLayout) findViewById(R.id.lltp);
+        lltv = (LinearLayout) findViewById(R.id.lltv);
+        llte = (LinearLayout) findViewById(R.id.llte);
+        llth = (LinearLayout) findViewById(R.id.llth);
+        llinfop = (LinearLayout) findViewById(R.id.llinfoP);
+        llinfov = (LinearLayout) findViewById(R.id.llinfoV);
+        llinfoe = (LinearLayout) findViewById(R.id.llinfoE);
+        llinfoh = (LinearLayout) findViewById(R.id.llinfoH);
+
+
+
 
         escuchaServicios();
         obtenerDatos();
@@ -71,8 +84,51 @@ public class detalleInfo extends ConexionMysqlHelper{
                 Intent s = new Intent(getApplicationContext(), MapsActivity.class);
                 s.putExtra("rut",rut);
                 startActivity(s);
-            }
-        });
+                    }
+                });
+
+                lltp.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        if(servp==0){
+                            llinfop.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 200)); servp=1;
+                        }else{
+                            llinfop.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)); servp=0;
+                        }
+
+                    }
+                });
+
+                lltv.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        if(servv==0){
+                            llinfov.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 200)); servv=1;
+                        }else{
+                            llinfov.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)); servv=0;
+                        }
+                    }
+                });
+
+                llte.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        if(serve==0){
+                            llinfoe.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 200)); serve=1;
+                        }else{
+                            llinfoe.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)); serve=0;
+                        }
+
+                    }
+                });
+
+                llth.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        if(servh==0){
+                            llinfoh.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 200)); servh=1;
+                        }else{
+                            llinfoh.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0)); servh=0;
+                        }
+
+                    }
+                });
 
     }
 
