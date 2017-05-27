@@ -70,6 +70,7 @@ public class FormRegister extends ConexionMysqlHelper{
 
                 Toast.makeText(getApplicationContext(),"Bienvenido "+gnombre+" "+gapellido, Toast.LENGTH_SHORT).show();
                 Intent m = new Intent(getApplicationContext(), MapsActivity.class);
+                m.putExtra("rut",grut);
                 startActivity(m);
 
 

@@ -108,16 +108,9 @@ public class MapsActivity extends ConexionMysqlHelper implements OnMapReadyCallb
 
         setting.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(varglob, "prueba setting", Toast.LENGTH_SHORT).show();
                 Intent s = new Intent(getApplicationContext(), detalleInfo.class);
-                s.putExtra("rut", rut);
-                s.putExtra("div", div);
-                s.putExtra("nom", nom);
-                s.putExtra("ape", ape);
-                s.putExtra("dir", dir);
-                s.putExtra("lat", lat);
-                s.putExtra("lng", lng);
-                s.putExtra("id_mob", id_mob);
+                s.putExtra("rut",rut);
+                s.putExtra("dir",dir);
                 startActivity(s);
             }
         });
@@ -129,7 +122,10 @@ public class MapsActivity extends ConexionMysqlHelper implements OnMapReadyCallb
                 if(Direccion.getText()!=null && Direccion.getText().toString() != ""){
 
                 /****** Ingreso segunda pagina ******/
-                Intent a = new Intent(getApplicationContext(), detalleInfo.class);
+                Intent a = new Intent(getApplicationContext(), SelEmergencia.class);
+                    a.putExtra("dir",dir);
+                    a.putExtra("lat",lat);
+                    a.putExtra("lng",lng);
                 startActivity(a);
             }else{
                     Toast.makeText(getApplicationContext(),"Debe especificar una dirección",Toast.LENGTH_SHORT).show();
@@ -161,8 +157,13 @@ public class MapsActivity extends ConexionMysqlHelper implements OnMapReadyCallb
 
     private void recuperarDatos() {
 
+        Intent iin = getIntent();
+        Bundle b = iin.getExtras();
+        if (b != null) {
+            rut = (String) b.get("rut");
+        }
+
         varglob = (varGlob) getApplicationContext();
-        grut = varglob.getRut();
         gdiv = varglob.getDiv();
         gnombre = varglob.getNombre();
         gapellido = varglob.getApellido();

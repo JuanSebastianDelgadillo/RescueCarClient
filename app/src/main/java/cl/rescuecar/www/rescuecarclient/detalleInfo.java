@@ -34,9 +34,9 @@ public class detalleInfo extends ConexionMysqlHelper{
     EditText nombre, solicitud, tipo;
     JSONObject jsonObject;
     JSONArray jsonArray;
-    String rut_serv, dig_serv, nom_serv, ape_serv, ema_serv, tel_serv, serv_serv;
+    TextView rut_user, dig_user, nom_user, ape_user, ema_user, tel_user, patente_serv;
     String[] services;
-    EditText nombre_serv, patente_serv, telefono_serv;
+    EditText nombre_serv, telefono_serv;
     TextView serv1,serv2, serv3, serv4, serv5,serv6, serv7, serv8, serv9, serv10, tiempo_serv, distancia_serv;
     ImageView star1, star2, star3, star4, star5;
     String detalle, calif, vehiculo, servicios_serv;
@@ -46,31 +46,23 @@ public class detalleInfo extends ConexionMysqlHelper{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_info);
 
+        rut_user = (TextView) findViewById(R.id.tvRut);
+        nom_user =(TextView) findViewById(R.id.tvNombre);
+        ema_user = (TextView) findViewById(R.id.tvEmail);
+        tel_user = (TextView) findViewById(R.id.tvTelefono);
+        patente_serv= (TextView) findViewById(R.id.tvPat);
+
+
         perfil = (ImageView) findViewById(R.id.improfile);
         internet = (ImageView) findViewById(R.id.imInt);
-        nombre_serv = (EditText) findViewById(R.id.etNombre);
-        patente_serv= (EditText) findViewById(R.id.etPatente);
-        telefono_serv = (EditText) findViewById(R.id.etTelefono);
-        tiempo_serv = (TextView) findViewById(R.id.tvTiempo);
-        distancia_serv = (TextView) findViewById(R.id.tvDistancia);
-        serv1 = (TextView) findViewById(R.id.tvServicio1);
-        serv2 = (TextView) findViewById(R.id.tvServicio2);
-        serv3 = (TextView) findViewById(R.id.tvServicio3);
-        serv4 = (TextView) findViewById(R.id.tvServicio4);
-        serv5 = (TextView) findViewById(R.id.tvServicio5);
-        serv6 = (TextView) findViewById(R.id.tvServicio6);
-        serv7 = (TextView) findViewById(R.id.tvServicio7);
-        serv8 = (TextView) findViewById(R.id.tvServicio8);
-        serv9 = (TextView) findViewById(R.id.tvServicio9);
-        serv10 = (TextView) findViewById(R.id.tvServicio10);
         star1 = (ImageView) findViewById(R.id.star1);
         star2 = (ImageView) findViewById(R.id.star2);
         star3 = (ImageView) findViewById(R.id.star3);
         star4 = (ImageView) findViewById(R.id.star4);
         star5 = (ImageView) findViewById(R.id.star5);
 
-        //escuchaServicios();
-        //obtenerDatos();
+        escuchaServicios();
+        obtenerDatos();
     }
 
     public void escuchaServicios() {
@@ -104,9 +96,6 @@ public class detalleInfo extends ConexionMysqlHelper{
         Intent iin = getIntent();
         Bundle b = iin.getExtras();
         if (b != null) {
-
-
-            tip = (String) b.get("tipo");
             rut = (String) b.get("rut");
             time = (String) b.get("time");
             dist = (String) b.get("dist");
@@ -116,6 +105,7 @@ public class detalleInfo extends ConexionMysqlHelper{
 
         grut = varglob.getRut();
         gdiv = varglob.getDiv();
+        rut_user.setText(grut+"-"+gdiv) ;
         gnombre = varglob.getNombre();
         gapellido = varglob.getApellido();
         gtelefono = varglob.getTelefono();
@@ -135,9 +125,7 @@ public class detalleInfo extends ConexionMysqlHelper{
         @Override
         protected void onPreExecute() {
 
-            Toast.makeText(getApplicationContext(), "Buscando chofer de servicio", Toast.LENGTH_SHORT).show();
-
-            json_url = "http://www.webinfo.cl/soshelp/cons_chofer_serv.php?rut="+rut;
+            json_url = "http://www.webinfo.cl/soshelp/cons_chofer_client.php?rut="+grut;
 
         }
 
@@ -189,41 +177,22 @@ public class detalleInfo extends ConexionMysqlHelper{
 
                 JSONObject JO = jsonArray.getJSONObject(0);
                 detalle = JO.getString("detalle");
-                servicios_serv = JO.getString("servicios");
                 calif = JO.getString("calificaciones");
                 vehiculo = JO.getString("vehiculo");
 
                 if (detalle.length() > 2 && calif.length() > 2 && vehiculo.length() > 2) {
 
                     String[]  infoP = detalle.split(",");
-                    nombre_serv.setText(infoP[1]+" "+infoP[2]);
-                    telefono_serv.setText("+569"+infoP[3]);
-                    distancia_serv.setText(dist);
-                    tiempo_serv.setText(time);
+                    nom_user.setText(infoP[1]+" "+infoP[2]);
+                    tel_user.setText("+569"+infoP[3]);
+                    ema_user.setText(infoP[4]);
 
                     String[] infoV = vehiculo.split(",");
-                    patente_serv.setText(infoV[2]);
+                    patente_serv.setText(infoV[0]);
 
-                    String[] infoS = servicios_serv.split(",");
-
-                    for (int i=0;i<infoS.length;i++){
-
-                        switch(i){
-                            case 0: serv1.setText(tipoAlerta(infoS[0])); break;
-                            case 1: serv2.setText(tipoAlerta(infoS[1])); break;
-                            case 2: serv3.setText(tipoAlerta(infoS[2])); break;
-                            case 3: serv4.setText(tipoAlerta(infoS[3])); break;
-                            case 4: serv5.setText(tipoAlerta(infoS[4])); break;
-                            case 5: serv6.setText(tipoAlerta(infoS[5])); break;
-                            case 6: serv7.setText(tipoAlerta(infoS[6])); break;
-                            case 7: serv8.setText(tipoAlerta(infoS[7])); break;
-                            case 8: serv9.setText(tipoAlerta(infoS[8])); break;
-                            case 9: serv10.setText(tipoAlerta(infoS[9])); break;
-
-                        }
-
-                    }
-
+                    Toast.makeText(this, "Detalle"+detalle, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "calif"+calif, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "vehiculo"+vehiculo, Toast.LENGTH_SHORT).show();
 
                 } else {
 
@@ -236,48 +205,5 @@ public class detalleInfo extends ConexionMysqlHelper{
                 e.printStackTrace();
             }
         }
-    }
-
-    public String tipoAlerta(String tip_alerta){
-        String texto = null;
-
-        switch (tip_alerta){
-            case "gm":
-                texto = "solicitud de grúa para motocicleta";
-                break;
-            case "ga":
-                texto = "solicitud de grúa para vehículo";
-                break;
-            case "gc":
-                texto = "solicitud de grúa para camioneta";
-                break;
-            case "go":
-                texto = "solicitud de grúa para vehículo mayor";
-                break;
-            case "po":
-                texto = "solicitud de carabineros";
-                break;
-            case "am":
-                texto = "solicitud de ambulancia";
-                break;
-            case "bo":
-                texto = "solicitud de bomberos";
-                break;
-            case "me":
-                texto = "solicitud de mecánico en ruta";
-                break;
-            case "ne":
-                texto = "solicitud de asistencia de neumático";
-                break;
-            case "tr":
-                texto = "solicitud de servicio de transporte";
-                break;
-            case "co":
-                texto = "solicitud de servicio de combustible";
-                break;
-
-        }
-
-        return texto;
     }
 }
