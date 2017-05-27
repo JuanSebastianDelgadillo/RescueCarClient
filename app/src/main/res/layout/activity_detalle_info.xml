@@ -56,104 +56,173 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
         android:background="@drawable/dragablemenu"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.3"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp">
 
-            <ImageView
-                android:id="@+id/improfile"
-                android:layout_width="160dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top"
-                android:layout_marginTop="0dp"
-                android:padding="5dp"
-                app:srcCompat="@drawable/profile" />
+                android:layout_weight="1.3"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/improfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:layout_gravity="top"
+                    android:layout_marginTop="0dp"
+                    android:padding="5dp"
+                    app:srcCompat="@drawable/profile" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView53"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Nombre completo"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/tvNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="@color/blanco"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView51"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rut"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/tvRut"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="@color/blanco"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView54"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="@color/blanco"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView48"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Teléfono"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/tvTelefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textColor="@color/blanco"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mi evaluación"
+                    android:textColor="@color/common_google_signin_btn_text_dark_default"
+                    android:textSize="10sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imStar1"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/stardown" />
+
+                    <ImageView
+                        android:id="@+id/imStar2"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/stardown" />
+
+                    <ImageView
+                        android:id="@+id/imStar3"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/stardown" />
+
+                    <ImageView
+                        android:id="@+id/imStar4"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/stardown" />
+
+                    <ImageView
+                        android:id="@+id/imStar5"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:paddingLeft="5dp"
+                        app:srcCompat="@drawable/stardown" />
+                </LinearLayout>
+
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView53"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Nombre completo"
-                android:textColor="@color/common_google_signin_btn_text_dark_default"
-                android:textSize="10sp" />
-
-            <TextView
-                android:id="@+id/tvNombre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="@color/blanco"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView51"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Rut"
-                android:textColor="@color/common_google_signin_btn_text_dark_default"
-                android:textSize="10sp" />
-
-            <TextView
-                android:id="@+id/tvRut"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="@color/blanco"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView54"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Email"
-                android:textColor="@color/common_google_signin_btn_text_dark_default"
-                android:textSize="10sp" />
-
-            <TextView
-                android:id="@+id/tvEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="@color/blanco"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView48"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Teléfono"
-                android:textColor="@color/common_google_signin_btn_text_dark_default"
-                android:textSize="10sp" />
-
-            <TextView
-                android:id="@+id/tvTelefono"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="@color/blanco"
-                android:textSize="18sp" />
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="5dp">
 
             <TextView
                 android:id="@+id/textView45"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Vehículo"
                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                 android:textSize="10sp" />
@@ -162,59 +231,10 @@
                 android:id="@+id/tvPat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Vehiculo - patente"
                 android:textColor="@color/blanco"
                 android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView25"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Mi evaluación"
-                android:textColor="@color/common_google_signin_btn_text_dark_default"
-                android:textSize="10sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imStar1"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:paddingLeft="5dp"
-                    app:srcCompat="@drawable/stardown" />
-
-                <ImageView
-                    android:id="@+id/imStar2"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:paddingLeft="5dp"
-                    app:srcCompat="@drawable/stardown" />
-
-                <ImageView
-                    android:id="@+id/imStar3"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:paddingLeft="5dp"
-                    app:srcCompat="@drawable/stardown" />
-
-                <ImageView
-                    android:id="@+id/imStar4"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:paddingLeft="5dp"
-                    app:srcCompat="@drawable/stardown" />
-
-                <ImageView
-                    android:id="@+id/imStar5"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:paddingLeft="5dp"
-                    app:srcCompat="@drawable/stardown" />
-            </LinearLayout>
 
         </LinearLayout>
 
@@ -223,7 +243,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="5dp"
         android:layout_weight="1"
         android:background="@color/common_google_signin_btn_text_dark_default"
         android:orientation="vertical">

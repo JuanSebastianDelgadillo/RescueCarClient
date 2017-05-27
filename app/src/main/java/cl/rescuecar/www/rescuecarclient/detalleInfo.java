@@ -39,7 +39,7 @@ public class detalleInfo extends ConexionMysqlHelper{
     EditText nombre_serv, telefono_serv;
     TextView serv1,serv2, serv3, serv4, serv5,serv6, serv7, serv8, serv9, serv10, tiempo_serv, distancia_serv;
     ImageView star1, star2, star3, star4, star5;
-    String detalle, calif, vehiculo, servicios_serv;
+    String calif, vehiculo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +55,11 @@ public class detalleInfo extends ConexionMysqlHelper{
 
         perfil = (ImageView) findViewById(R.id.improfile);
         internet = (ImageView) findViewById(R.id.imInt);
-        star1 = (ImageView) findViewById(R.id.star1);
-        star2 = (ImageView) findViewById(R.id.star2);
-        star3 = (ImageView) findViewById(R.id.star3);
-        star4 = (ImageView) findViewById(R.id.star4);
-        star5 = (ImageView) findViewById(R.id.star5);
+        star1 = (ImageView) findViewById(R.id.imStar1);
+        star2 = (ImageView) findViewById(R.id.imStar2);
+        star3 = (ImageView) findViewById(R.id.imStar3);
+        star4 = (ImageView) findViewById(R.id.imStar4);
+        star5 = (ImageView) findViewById(R.id.imStar5);
 
         escuchaServicios();
         obtenerDatos();
@@ -176,23 +176,48 @@ public class detalleInfo extends ConexionMysqlHelper{
                 jsonArray = jsonObject.getJSONArray("server_response");
 
                 JSONObject JO = jsonArray.getJSONObject(0);
-                detalle = JO.getString("detalle");
                 calif = JO.getString("calificaciones");
                 vehiculo = JO.getString("vehiculo");
 
-                if (detalle.length() > 2 && calif.length() > 2 && vehiculo.length() > 2) {
+                String[]  infoC = calif.split(",");
+                String[]  infoV = vehiculo.split(",");
 
-                    String[]  infoP = detalle.split(",");
-                    nom_user.setText(infoP[1]+" "+infoP[2]);
-                    tel_user.setText("+569"+infoP[3]);
-                    ema_user.setText(infoP[4]);
+                if (infoC.length >= 1 && infoV.length >= 1) {
 
-                    String[] infoV = vehiculo.split(",");
-                    patente_serv.setText(infoV[0]);
+                patente_serv.setText(infoV[0]+" "+infoV[1]+" PAT: "+infoV[2]);
 
-                    Toast.makeText(this, "Detalle"+detalle, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(this, "calif"+calif, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(this, "vehiculo"+vehiculo, Toast.LENGTH_SHORT).show();
+                int valoracion = Integer.parseInt(infoC[0]);
+
+                switch (valoracion){
+
+                    case 1:
+                        star1.setImageResource(R.drawable.starup);
+                        break;
+                    case 2:
+                        star1.setImageResource(R.drawable.starup);
+                        star2.setImageResource(R.drawable.starup);
+                        break;
+                    case 3:
+                        star1.setImageResource(R.drawable.starup);
+                        star2.setImageResource(R.drawable.starup);
+                        star3.setImageResource(R.drawable.starup);
+                        break;
+                    case 4:
+                        star1.setImageResource(R.drawable.starup);
+                        star2.setImageResource(R.drawable.starup);
+                        star3.setImageResource(R.drawable.starup);
+                        star4.setImageResource(R.drawable.starup);
+                        break;
+                    case 5:
+                        star1.setImageResource(R.drawable.starup);
+                        star2.setImageResource(R.drawable.starup);
+                        star3.setImageResource(R.drawable.starup);
+                        star4.setImageResource(R.drawable.starup);
+                        star5.setImageResource(R.drawable.starup);
+                        break;
+                }
+
+
 
                 } else {
 
