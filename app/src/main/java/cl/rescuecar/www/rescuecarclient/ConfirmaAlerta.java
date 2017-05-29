@@ -9,6 +9,7 @@ import android.provider.Settings;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -112,97 +113,13 @@ public class ConfirmaAlerta extends ConexionMysqlHelper{
         cbtr = (CheckBox) findViewById(R.id.cbTr);
         cbco = (CheckBox) findViewById(R.id.cbCo);
 
-
-        //escuchar LinearLayout
-        llgm.setOnClickListener(new View.OnClickListener() {@Override
+        Button btFinalizar = (Button) findViewById(R.id.btFinalizar);
+        btFinalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
-            Intent m = new Intent(getApplicationContext(), detalleServ.class);
-            m.putExtra("tipo", "gm");
-            m.putExtra("rut", rutgm);
-            m.putExtra("time", timegm);
-            m.putExtra("dist", distgm);
-            startActivity(m); }});
-
-        llga.setOnClickListener(new View.OnClickListener() {@Override
-        public void onClick(View v) {
-            Intent m = new Intent(getApplicationContext(), detalleServ.class);
-            m.putExtra("tipo", "ga");
-            m.putExtra("rut", rutga);
-            m.putExtra("time", timega);
-            m.putExtra("dist", distga);
-            startActivity(m); }});
-        llgc.setOnClickListener(new View.OnClickListener() {@Override
-        public void onClick(View v) {
-            Intent m = new Intent(getApplicationContext(), detalleServ.class);
-            m.putExtra("tipo", "gc");
-            m.putExtra("rut", rutgc);
-            m.putExtra("time", timegc);
-            m.putExtra("dist", distgc);
-            startActivity(m); }});
-        llgo.setOnClickListener(new View.OnClickListener() {@Override
-        public void onClick(View v) {
-            Intent m = new Intent(getApplicationContext(), detalleServ.class);
-            m.putExtra("tipo", "go");
-            m.putExtra("rut", rutgo);
-            m.putExtra("time", timego);
-            m.putExtra("dist", distgo);
-            startActivity(m); }});
-        llpo.setOnClickListener(new View.OnClickListener() {@Override
-        public void onClick(View v) {
-            Intent m = new Intent(getApplicationContext(), detalleServ.class);
-            m.putExtra("tipo", "po");
-            m.putExtra("rut", rutpo);
-            m.putExtra("time", timepo);
-            m.putExtra("dist", distpo);
-            startActivity(m); }});
-        llam.setOnClickListener(new View.OnClickListener() {@Override
-        public void onClick(View v) {
-            Intent m = new Intent(getApplicationContext(), detalleServ.class);
-            m.putExtra("tipo", "am");
-            m.putExtra("rut", rutam);
-            m.putExtra("time", timeam);
-            m.putExtra("dist", distam);
-            startActivity(m); }});
-        llbo.setOnClickListener(new View.OnClickListener() {@Override
-        public void onClick(View v) {
-            Intent m = new Intent(getApplicationContext(), detalleServ.class);
-            m.putExtra("tipo", "bo");
-            m.putExtra("rut", rutbo);
-            m.putExtra("time", timebo);
-            m.putExtra("dist", distbo);
-            startActivity(m); }});
-        llme.setOnClickListener(new View.OnClickListener() {@Override
-        public void onClick(View v) {
-            Intent m = new Intent(getApplicationContext(), detalleServ.class);
-            m.putExtra("tipo", "me");
-            m.putExtra("rut", rutme);
-            m.putExtra("time", timeme);
-            m.putExtra("dist", distme);
-            startActivity(m); }});
-        llne.setOnClickListener(new View.OnClickListener() {@Override
-        public void onClick(View v) {
-            Intent m = new Intent(getApplicationContext(), detalleServ.class);
-            m.putExtra("tipo", "ne");
-            m.putExtra("rut", rutne);
-            m.putExtra("time", timene);
-            m.putExtra("dist", distne);
-            startActivity(m); }});
-        lltr.setOnClickListener(new View.OnClickListener() {@Override
-        public void onClick(View v) {
-            Intent m = new Intent(getApplicationContext(), detalleServ.class);
-            m.putExtra("tipo", "tr");
-            m.putExtra("rut", ruttr);
-            m.putExtra("time", timetr);
-            m.putExtra("dist", disttr);
-            startActivity(m); }});
-        llco.setOnClickListener(new View.OnClickListener() {@Override
-        public void onClick(View v) {
-            Intent m = new Intent(getApplicationContext(), detalleServ.class);
-            m.putExtra("tipo", "co");
-            m.putExtra("rut", rutco);
-            m.putExtra("time", timeco);
-            m.putExtra("dist", distco);
-            startActivity(m); }});
+                finish();
+            }
+        });
 
 
         escuchaServicios();
@@ -442,17 +359,117 @@ private void buscarChofer(){
 
                         switch (tips){
 
-                            case "gm":  pbgm.setVisibility(View.INVISIBLE);  cbgm.setChecked(true); rutgm=rut_chofer; timegm=time_chofer; distgm = dist_chofer; break;
-                            case "ga":  pbga.setVisibility(View.INVISIBLE);  cbga.setChecked(true); rutga=rut_chofer; timega=time_chofer; distga = dist_chofer; break;
-                            case "gc":  pbgc.setVisibility(View.INVISIBLE);  cbgc.setChecked(true); rutgc=rut_chofer; timegc=time_chofer; distgc = dist_chofer; break;
-                            case "go":  pbgo.setVisibility(View.INVISIBLE);  cbgo.setChecked(true); rutgo=rut_chofer; timego=time_chofer; distgo = dist_chofer; break;
-                            case "po":  pbpo.setVisibility(View.INVISIBLE);  cbpo.setChecked(true); rutpo=rut_chofer; timepo=time_chofer; distpo = dist_chofer; break;
-                            case "am":  pbam.setVisibility(View.INVISIBLE);  cbam.setChecked(true); rutam=rut_chofer; timeam=time_chofer; distam = dist_chofer; break;
-                            case "bo":  pbbo.setVisibility(View.INVISIBLE);  cbbo.setChecked(true); rutbo=rut_chofer; timebo=time_chofer; distbo = dist_chofer; break;
-                            case "me":  pbme.setVisibility(View.INVISIBLE);  cbme.setChecked(true); rutme=rut_chofer; timeme=time_chofer; distme = dist_chofer; break;
-                            case "ne":  pbne.setVisibility(View.INVISIBLE);  cbne.setChecked(true); rutne=rut_chofer; timene=time_chofer; distne = dist_chofer; break;
-                            case "tr":  pbtr.setVisibility(View.INVISIBLE);  cbtr.setChecked(true); ruttr=rut_chofer; timetr=time_chofer; disttr = dist_chofer; break;
-                            case "co":  pbco.setVisibility(View.INVISIBLE);  cbco.setChecked(true); rutco=rut_chofer; timeco=time_chofer; distco = dist_chofer; break;
+
+                            case "gm":  pbgm.setVisibility(View.INVISIBLE);  cbgm.setChecked(true); rutgm=rut_chofer; timegm=time_chofer;
+                                llgm.setOnClickListener(new View.OnClickListener() {@Override
+                                public void onClick(View v) {
+                                    Intent m = new Intent(getApplicationContext(), detalleServ.class);
+                                    m.putExtra("tipo", "gm");
+                                    m.putExtra("rut", rutgm);
+                                    m.putExtra("time", timegm);
+									m.putExtra("dist", distgm);
+                                    startActivity(m); }});
+                                break;
+                            case "ga":  pbga.setVisibility(View.INVISIBLE);  cbga.setChecked(true); rutga=rut_chofer; timega=time_chofer;
+                                llga.setOnClickListener(new View.OnClickListener() {@Override
+                                public void onClick(View v) {
+                                    Intent m = new Intent(getApplicationContext(), detalleServ.class);
+                                    m.putExtra("tipo", "ga");
+                                    m.putExtra("rut", rutga);
+                                    m.putExtra("time", timega);
+									m.putExtra("dist", distga);
+                                    startActivity(m); }});
+                                break;
+                            case "gc":  pbgc.setVisibility(View.INVISIBLE);  cbgc.setChecked(true); rutgc=rut_chofer; timegc=time_chofer;
+                                llgc.setOnClickListener(new View.OnClickListener() {@Override
+                                public void onClick(View v) {
+                                    Intent m = new Intent(getApplicationContext(), detalleServ.class);
+                                    m.putExtra("tipo", "gc");
+                                    m.putExtra("rut", rutgc);
+                                    m.putExtra("time", timegc);
+									m.putExtra("dist", distgc);
+                                    startActivity(m); }});
+                                break;
+                            case "go":  pbgo.setVisibility(View.INVISIBLE);  cbgo.setChecked(true); rutgo=rut_chofer; timego=time_chofer;
+                                llgo.setOnClickListener(new View.OnClickListener() {@Override
+                                public void onClick(View v) {
+                                    Intent m = new Intent(getApplicationContext(), detalleServ.class);
+                                    m.putExtra("tipo", "go");
+                                    m.putExtra("rut", rutgo);
+                                    m.putExtra("time", timego);
+									m.putExtra("dist", distgo);
+                                    startActivity(m); }});
+                                break;
+                            case "po":  pbpo.setVisibility(View.INVISIBLE);  cbpo.setChecked(true); rutpo=rut_chofer; timepo=time_chofer;
+                                llpo.setOnClickListener(new View.OnClickListener() {@Override
+                                public void onClick(View v) {
+                                    Intent m = new Intent(getApplicationContext(), detalleServ.class);
+                                    m.putExtra("tipo", "po");
+                                    m.putExtra("rut", rutpo);
+                                    m.putExtra("time", timepo);
+									m.putExtra("dist", distpo);
+                                    startActivity(m); }});
+                                break;
+                            case "am":  pbam.setVisibility(View.INVISIBLE);  cbam.setChecked(true); rutam=rut_chofer; timeam=time_chofer;
+                                llam.setOnClickListener(new View.OnClickListener() {@Override
+                                public void onClick(View v) {
+                                    Intent m = new Intent(getApplicationContext(), detalleServ.class);
+                                    m.putExtra("tipo", "am");
+                                    m.putExtra("rut", rutam);
+                                    m.putExtra("time", timeam);
+									m.putExtra("dist", distam);
+                                    startActivity(m); }});
+                                break;
+                            case "bo":  pbbo.setVisibility(View.INVISIBLE);  cbbo.setChecked(true); rutbo=rut_chofer; timebo=time_chofer;
+                                llbo.setOnClickListener(new View.OnClickListener() {@Override
+                                public void onClick(View v) {
+                                    Intent m = new Intent(getApplicationContext(), detalleServ.class);
+                                    m.putExtra("tipo", "bo");
+                                    m.putExtra("rut", rutbo);
+                                    m.putExtra("time", timebo);
+									m.putExtra("dist", distbo);
+                                    startActivity(m); }});
+                                break;
+                            case "me":  pbme.setVisibility(View.INVISIBLE);  cbme.setChecked(true); rutme=rut_chofer; timeme=time_chofer;
+                                llme.setOnClickListener(new View.OnClickListener() {@Override
+                                public void onClick(View v) {
+                                    Intent m = new Intent(getApplicationContext(), detalleServ.class);
+                                    m.putExtra("tipo", "me");
+                                    m.putExtra("rut", rutme);
+                                    m.putExtra("time", timeme);
+									m.putExtra("dist", distme);
+                                    startActivity(m); }});
+                                break;
+                            case "ne":  pbne.setVisibility(View.INVISIBLE);  cbne.setChecked(true); rutne=rut_chofer; timene=time_chofer;
+                                llne.setOnClickListener(new View.OnClickListener() {@Override
+                                public void onClick(View v) {
+                                    Intent m = new Intent(getApplicationContext(), detalleServ.class);
+                                    m.putExtra("tipo", "ne");
+                                    m.putExtra("rut", rutne);
+                                    m.putExtra("time", timene);
+									m.putExtra("dist", distne);
+                                    startActivity(m); }});
+                                break;
+                            case "tr":  pbtr.setVisibility(View.INVISIBLE);  cbtr.setChecked(true); ruttr=rut_chofer; timetr=time_chofer;
+                                lltr.setOnClickListener(new View.OnClickListener() {@Override
+                                public void onClick(View v) {
+                                    Intent m = new Intent(getApplicationContext(), detalleServ.class);
+                                    m.putExtra("tipo", "tr");
+                                    m.putExtra("rut", ruttr);
+                                    m.putExtra("time", timetr);
+									m.putExtra("dist", disttr);
+                                    startActivity(m); }});
+                                break;
+                            case "co":  pbco.setVisibility(View.INVISIBLE);  cbco.setChecked(true); rutco=rut_chofer; timeco=time_chofer;
+                                llco.setOnClickListener(new View.OnClickListener() {@Override
+                                public void onClick(View v) {
+                                    Intent m = new Intent(getApplicationContext(), detalleServ.class);
+                                    m.putExtra("tipo", "co");
+                                    m.putExtra("rut", rutco);
+                                    m.putExtra("time", timeco);
+									m.putExtra("dist", distco);
+                                    startActivity(m); }});
+                                break;
 
                         }
                         Log.i("Elimine:", tips);

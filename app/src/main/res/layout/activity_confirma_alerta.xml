@@ -140,7 +140,8 @@
                 android:layout_marginTop="5dp"
                 android:textColor="@color/azul"
                 map:buttonTint="@color/azul"
-                map:buttonTintMode="@color/azul" />
+                map:buttonTintMode="@color/azul"
+                android:enabled="false"/>
 
         </LinearLayout>
 
@@ -179,7 +180,8 @@
                 android:layout_marginTop="5dp"
                 android:textColor="@color/azul"
                 map:buttonTint="@color/azul"
-                map:buttonTintMode="@color/azul" />
+                map:buttonTintMode="@color/azul"
+                android:enabled="false"/>
         </LinearLayout>
 
         <LinearLayout
@@ -216,7 +218,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/azul"
-                map:buttonTint="@color/azul" />
+                map:buttonTint="@color/azul"
+                android:enabled="false"/>
         </LinearLayout>
 
         <LinearLayout
@@ -253,7 +256,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/azul"
-                map:buttonTint="@color/azul" />
+                map:buttonTint="@color/azul"
+                android:enabled="false"/>
         </LinearLayout>
 
         <LinearLayout
@@ -290,7 +294,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/azul"
-                map:buttonTint="@color/azul" />
+                map:buttonTint="@color/azul"
+                android:enabled="false"/>
         </LinearLayout>
 
         <LinearLayout
@@ -329,7 +334,8 @@
                 android:layout_marginTop="5dp"
                 android:layout_weight="0"
                 android:textColor="@color/azul"
-                map:buttonTint="@color/azul" />
+                map:buttonTint="@color/azul"
+                android:enabled="false"/>
         </LinearLayout>
 
         <LinearLayout
@@ -364,7 +370,8 @@
                 android:id="@+id/cbBo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                map:buttonTint="@color/azul" />
+                map:buttonTint="@color/azul"
+                android:enabled="false"/>
 
         </LinearLayout>
 
@@ -402,7 +409,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/azul"
-                map:buttonTint="@color/azul" />
+                map:buttonTint="@color/azul"
+                android:enabled="false"/>
         </LinearLayout>
 
         <LinearLayout
@@ -439,7 +447,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/azul"
-                map:buttonTint="@color/azul" />
+                map:buttonTint="@color/azul"
+                android:enabled="false"/>
         </LinearLayout>
 
         <LinearLayout
@@ -476,7 +485,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/azul"
-                map:buttonTint="@color/azul" />
+                map:buttonTint="@color/azul"
+                android:enabled="false"/>
         </LinearLayout>
 
         <LinearLayout
@@ -513,15 +523,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/azul"
-                map:buttonTint="@color/azul" />
+                map:buttonTint="@color/azul"
+                android:enabled="false"/>
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="5dp"
+        android:gravity="bottom"
         android:orientation="horizontal">
 
         <Button
@@ -531,7 +543,7 @@
             android:layout_weight="1"
             android:background="@color/azul"
             android:drawableLeft="@android:drawable/ic_menu_close_clear_cancel"
-            android:paddingLeft="30dp"
+            android:paddingLeft="20dp"
             android:text="FINZALIZAR"
             android:textColor="@color/blanco" />
 

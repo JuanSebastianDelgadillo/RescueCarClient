@@ -128,17 +128,17 @@ public class SelEmergencia extends ConexionMysqlHelper  {
                 if (actGrua==0){
                     grua.setImageResource(R.drawable.grup);
                     actGrua=1;
-                    menuGrua.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 50));
-                    menu2Grua.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                    Util.expand(menuGrua, 500);
+                    Util.expand(menu2Grua, 500);
                     bloquearDemasServicios("grua");
+                    desactivarBoton();
                     habilitaMenuGrua();
                     descGrua.setText("Solicitud de grua para..");
                 }else{
                     grua.setImageResource(R.mipmap.ic_gru);
                     actGrua=0;
-                    menuGrua.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0));
-                    menu2Grua.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0));
-                    habilitarDemasServicios();
+                    Util.collapse(menuGrua, 500);
+                    Util.collapse(menu2Grua, 500);
                     deshabilitarMenuGrua();
                     descGrua.setText("");
                 }
@@ -151,14 +151,13 @@ public class SelEmergencia extends ConexionMysqlHelper  {
                     mecanico.setImageResource(R.drawable.mecp);
                     actMec=1;
                     bloquearDemasServicios("mecanico");
-                    menuMecanico.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 70));
+                    Util.expand(menuMecanico, 500);
                     descMecanico.requestFocus();
                     activarBoton();
                 }else{
                     mecanico.setImageResource(R.mipmap.ic_mec);
                     actMec=0;
-                    menuMecanico.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0));
-                    habilitarDemasServicios();
+                    Util.collapse(menuMecanico, 500);
                     desactivarBoton();
                 }
             }
@@ -170,13 +169,12 @@ public class SelEmergencia extends ConexionMysqlHelper  {
                     neumatico.setImageResource(R.drawable.neup);
                     bloquearDemasServicios("neumatico");
                     actNeu=1;
-                    menuNeumatico.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 70));
+                    Util.expand(menuNeumatico, 500);
                     activarBoton();
                 }else{
                     neumatico.setImageResource(R.mipmap.ic_neu);
                     actNeu=0;
-                    menuNeumatico.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0));
-                    habilitarDemasServicios();
+                    Util.collapse(menuNeumatico, 500);
                     desactivarBoton();
                 }
             }
@@ -189,13 +187,12 @@ public class SelEmergencia extends ConexionMysqlHelper  {
                     combustible.setImageResource(R.drawable.comp);
                     actCom=1;
                     bloquearDemasServicios("combustible");
-                    menuCombustible.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 70));
+                    Util.expand(menuCombustible, 500);
                     activarBoton();
                 }else{
                     combustible.setImageResource(R.mipmap.ic_com);
                     actCom=0;
-                    menuCombustible.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0));
-                    habilitarDemasServicios();
+                    Util.collapse(menuCombustible, 500);
                     desactivarBoton();
                 }
             }
@@ -207,11 +204,9 @@ public class SelEmergencia extends ConexionMysqlHelper  {
                     policia.setImageResource(R.drawable.polp); actPol=1;
                     activarMenuEmer();
 
-
                 }else{
                     policia.setImageResource(R.mipmap.ic_pol); actPol=0;
                     desactivarMenuEmer();
-
                 }
             }
         });
@@ -220,8 +215,7 @@ public class SelEmergencia extends ConexionMysqlHelper  {
             public void onClick(View v) {
                 if (actBom==0){
                     bomberos.setImageResource(R.drawable.bomp); actBom=1;
-                   activarMenuEmer();
-
+                    activarMenuEmer();
                 }else{
                     bomberos.setImageResource(R.mipmap.ic_bom); actBom=0;
                     desactivarMenuEmer();
@@ -234,7 +228,7 @@ public class SelEmergencia extends ConexionMysqlHelper  {
             public void onClick(View v) {
                 if (actAmb==0){
                     ambulancia.setImageResource(R.drawable.ambp); actAmb=1;
-
+                    activarMenuEmer();
                 }else{
                     ambulancia.setImageResource(R.mipmap.ic_amb); actAmb=0;
                     desactivarMenuEmer();
@@ -246,11 +240,11 @@ public class SelEmergencia extends ConexionMysqlHelper  {
             public void onClick(View v) {
                 if (actTra==0){
                     transporte.setImageResource(R.drawable.tranp); actTra=1;
-                    menuTransporte.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 70));
+                    Util.expand(menuTransporte, 500);
                     activarBoton();
                 }else{
                     transporte.setImageResource(R.mipmap.ic_tra); actTra=0;
-                    menuTransporte.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0));
+                    Util.collapse(menuTransporte, 500);
                     desactivarBoton();
                 }
             }
@@ -261,14 +255,15 @@ public class SelEmergencia extends ConexionMysqlHelper  {
                 if (actGmoto==0){
                     gmoto.setImageResource(R.drawable.gmotop);
                     actGmoto=1;
-                    gauto.setEnabled(false); gcamioneta.setEnabled(false); gcamion.setEnabled(false);
+                    actGauto=0;actGcamioneta=0;actGcamion=0;
+                    gauto.setImageResource(R.mipmap.ic_gauto);
+                    gcamioneta.setImageResource(R.mipmap.ic_gcamioneta);
+                    gcamion.setImageResource(R.mipmap.ic_camion);
                     descGrua.setText("Solicitud de grua para motocicleta");
                     activarBoton();
-
                 }else{
                     gmoto.setImageResource(R.mipmap.ic_gmoto);
                     actGmoto=0;
-                    gauto.setEnabled(true); gcamioneta.setEnabled(true); gcamion.setEnabled(true);
                     descGrua.setText("Solicitud de grua para..");
                     desactivarBoton();
                 }
@@ -280,13 +275,15 @@ public class SelEmergencia extends ConexionMysqlHelper  {
                 if (actGauto==0){
                     gauto.setImageResource(R.drawable.gautop);
                     actGauto=1;
-                    gmoto.setEnabled(false); gcamioneta.setEnabled(false); gcamion.setEnabled(false);
+                    actGmoto=0;actGcamioneta=0;actGcamion=0;
+                    gmoto.setImageResource(R.mipmap.ic_gmoto);
+                    gcamioneta.setImageResource(R.mipmap.ic_gcamioneta);
+                    gcamion.setImageResource(R.mipmap.ic_camion);
                     descGrua.setText("Solicitud de grua para vehículo menor ");
                     activarBoton();
                 }else{
                     gauto.setImageResource(R.mipmap.ic_gauto);
                     actGauto=0;
-                    gmoto.setEnabled(true); gcamioneta.setEnabled(true); gcamion.setEnabled(true);
                     descGrua.setText("Solicitud de grua para..");
                     desactivarBoton();
                 }
@@ -298,13 +295,15 @@ public class SelEmergencia extends ConexionMysqlHelper  {
                 if (actGcamioneta==0){
                     gcamioneta.setImageResource(R.drawable.gcamionetap);
                     actGcamioneta=1;
-                    gauto.setEnabled(false); gmoto.setEnabled(false); gcamion.setEnabled(false);
+                    actGmoto=0;actGauto=0;actGcamion=0;
+                    gmoto.setImageResource(R.mipmap.ic_gmoto);
+                    gauto.setImageResource(R.mipmap.ic_gauto);
+                    gcamion.setImageResource(R.mipmap.ic_camion);
                     descGrua.setText("Solicitud de grua para vehículo mediano");
                     activarBoton();
                 }else{
                     gcamioneta.setImageResource(R.mipmap.ic_gcamioneta);
                     actGcamioneta=0;
-                    gauto.setEnabled(true); gmoto.setEnabled(true); gcamion.setEnabled(true);
                     descGrua.setText("Solicitud de grua para..");
                     desactivarBoton();
                 }
@@ -316,13 +315,15 @@ public class SelEmergencia extends ConexionMysqlHelper  {
                 if (actGcamion==0){
                     gcamion.setImageResource(R.drawable.gcamionp);
                     actGcamion=1;
-                    gauto.setEnabled(false); gcamioneta.setEnabled(false); gmoto.setEnabled(false);
+                    actGmoto=0;actGauto=0;actGcamioneta=0;
+                    gmoto.setImageResource(R.mipmap.ic_gmoto);
+                    gauto.setImageResource(R.mipmap.ic_gauto);
+                    gcamioneta.setImageResource(R.mipmap.ic_gcamioneta);
                     descGrua.setText("Solicitud de grua para vehículo mayor");
                     activarBoton();
                 }else{
                     gcamion.setImageResource(R.mipmap.ic_camion);
                     actGcamion=0;
-                    gauto.setEnabled(true); gcamioneta.setEnabled(true); gmoto.setEnabled(true);
                     descGrua.setText("Solicitud de grua para..");
                     desactivarBoton();
                 }
@@ -443,26 +444,58 @@ public class SelEmergencia extends ConexionMysqlHelper  {
 
         switch (valor){
             case "grua":
-                mecanico.setEnabled(false);neumatico.setEnabled(false);combustible.setEnabled(false);
+                //mecanico.setEnabled(false);neumatico.setEnabled(false);combustible.setEnabled(false);
+                mecanico.setImageResource(R.mipmap.ic_mec);
+                neumatico.setImageResource(R.mipmap.ic_neu);
+                combustible.setImageResource(R.mipmap.ic_com);
                 actMec=0; actNeu=0; actCom=0;
+                Util.collapse(menuCombustible, 500);
+                Util.collapse(menuMecanico, 500);
+                Util.collapse(menuNeumatico, 500);
             break;
             case "mecanico":
-                grua.setEnabled(false);neumatico.setEnabled(false);combustible.setEnabled(false);
+                grua.setImageResource(R.mipmap.ic_gru);
+                neumatico.setImageResource(R.mipmap.ic_neu);
+                combustible.setImageResource(R.mipmap.ic_com);
+                //grua.setEnabled(false);neumatico.setEnabled(false);combustible.setEnabled(false);
                 actGrua=0; actNeu=0; actCom=0;
+                deshabilitarMenuGrua();
+                Util.collapse(menuGrua, 500);
+                Util.collapse(menu2Grua, 500);
+                Util.collapse(menuCombustible, 500);
+                Util.collapse(menuNeumatico, 500);
+                descGrua.setText("");
                 break;
             case "neumatico":
-                grua.setEnabled(false);mecanico.setEnabled(false);combustible.setEnabled(false);
+                //grua.setEnabled(false);mecanico.setEnabled(false);combustible.setEnabled(false);
+                grua.setImageResource(R.mipmap.ic_gru);
+                mecanico.setImageResource(R.mipmap.ic_mec);
+                combustible.setImageResource(R.mipmap.ic_com);
                 actGrua=0; actMec=0; actCom=0;
+                deshabilitarMenuGrua();
+                descGrua.setText("");
+                Util.collapse(menuGrua, 500);
+                Util.collapse(menu2Grua, 500);
+                Util.collapse(menuCombustible, 500);
+                Util.collapse(menuMecanico, 500);
                 break;
             case "combustible":
-                grua.setEnabled(false);mecanico.setEnabled(false);neumatico.setEnabled(false);
+                //grua.setEnabled(false);mecanico.setEnabled(false);neumatico.setEnabled(false);
+                grua.setImageResource(R.mipmap.ic_gru);
+                mecanico.setImageResource(R.mipmap.ic_mec);
+                neumatico.setImageResource(R.mipmap.ic_neu);
                 actGrua=0; actMec=0; actNeu=0;
+                deshabilitarMenuGrua();
+                descGrua.setText("");
+                Util.collapse(menuGrua, 500);
+                Util.collapse(menu2Grua, 500);
+                Util.collapse(menuMecanico, 500);
+                Util.collapse(menuNeumatico, 500);
                 break;
         }
     }
 
     private void habilitarDemasServicios(){
-
         grua.setEnabled(true);mecanico.setEnabled(true);neumatico.setEnabled(true);combustible.setEnabled(true);
     }
 
@@ -490,7 +523,7 @@ public class SelEmergencia extends ConexionMysqlHelper  {
     private void activarMenuEmer(){
         if (actEmer==0){
             actEmer=1;
-            menuEmergencia.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 100));
+            Util.expand(menuEmergencia, 500);
             descEmergencia.requestFocus();
             activarBoton();
         }
@@ -500,7 +533,7 @@ public class SelEmergencia extends ConexionMysqlHelper  {
 
         if (actPol==0 && actBom==0 && actAmb==0){
             actEmer=0;
-            menuEmergencia.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 0));
+            Util.collapse(menuEmergencia, 500);
             desactivarBoton();
         }
 
